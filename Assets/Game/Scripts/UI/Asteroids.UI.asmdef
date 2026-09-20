@@ -1,0 +1,17 @@
+{
+    "name": "Asteroids.UI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:69fe6cc25fe4240e288e63c28504fece",
+        "GUID:dd68e50107d9242769f423b95dbe33bf"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

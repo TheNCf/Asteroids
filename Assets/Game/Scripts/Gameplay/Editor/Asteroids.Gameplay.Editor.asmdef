@@ -1,0 +1,16 @@
+{
+    "name": "Asteroids.Gameplay.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e43359493b48e480cb72e76cd10d7c89"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

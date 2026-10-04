@@ -1,0 +1,7 @@
+{
+  "StartHealth" : 3,
+  "AngularSpeed" : 45.0,
+  "MaxSpeed" : 5.0,
+  "ThrustForce" : 1.0,
+  "InvulnerabilitySeconds" : 3.0
+}

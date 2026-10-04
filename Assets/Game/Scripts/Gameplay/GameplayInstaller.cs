@@ -19,5 +19,7 @@ namespace Game.Scripts.Gameplay
             Container.DeclareSignal<PlayerLoseSignal>();
             Container.DeclareSignal<EnemyDestroySignal>();
         }
+
+        
     }
 }

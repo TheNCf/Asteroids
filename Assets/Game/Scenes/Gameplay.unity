@@ -225,6 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 809055564}
   - component: {fileID: 809055563}
+  - component: {fileID: 809055565}
   - component: {fileID: 809055562}
   m_Layer: 0
   m_Name: '[Scene Context]'
@@ -260,6 +261,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 809055562}
+  - {fileID: 809055565}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -292,6 +294,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &809055565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809055561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130802adcb7f4de2b2aff408df7cd0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _asteroidConfigJson: {fileID: 4900000, guid: b70f51343e814786900ca2765145af66, type: 3}
+  _bulletConfigJson: {fileID: 4900000, guid: f2d7e6000a4c4b408fac709337943638, type: 3}
+  _laserConfigJson: {fileID: 4900000, guid: 278eaf587f6f4dcb9050964ab7c015fc, type: 3}
+  _playerCharacterConfigJson: {fileID: 4900000, guid: bed94db8e07c4964ad9c60022919db30, type: 3}
+  _ufoConfigJson: {fileID: 4900000, guid: 5adcca7db2e84e5b8857ec7129239f6a, type: 3}
+  _worldConfigJson: {fileID: 4900000, guid: 4276d4a1b8714eda903b8cf1119e7a9d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

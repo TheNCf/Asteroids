@@ -12,8 +12,6 @@ namespace Game.Scripts.Gameplay
 
         private void DeclareSignals()
         {
-            Container.DeclareSignal<GameStartSignal>();
-            Container.DeclareSignal<GamePausedSignal>();
             Container.DeclareSignal<PlayerCharacterHitSignal>();
             Container.DeclareSignal<InvulnerabilityEndedSignal>();
             Container.DeclareSignal<PlayerLoseSignal>();

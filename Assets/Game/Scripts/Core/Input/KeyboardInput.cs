@@ -10,8 +10,7 @@ namespace Game.Scripts.Core.Input
         
         public event Action BulletButtonPressed;
         public event Action LaserButtonPressed;
-
-
+        
         public void Tick()
         {
             float negHorizontal = UnityEngine.Input.GetKey(KeyCode.A) ? -1f : 0f;

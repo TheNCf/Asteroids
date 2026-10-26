@@ -34,13 +34,13 @@ namespace Game.Scripts.Gameplay.Movement
                 if (movable.Position.x > _worldExtents.x)
                     movable.Move(-_worldConfig.Width, 0);
                 
-                if (movable.Position.x < _worldExtents.x)
+                if (movable.Position.x < -_worldExtents.x)
                     movable.Move(_worldConfig.Width, 0);
                 
                 if (movable.Position.y > _worldExtents.y)
                     movable.Move(0, -_worldConfig.Height);
                 
-                if (movable.Position.y < _worldExtents.y)
+                if (movable.Position.y < -_worldExtents.y)
                     movable.Move(0, _worldConfig.Height);
             }
         }

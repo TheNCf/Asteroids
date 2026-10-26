@@ -1,3 +1,4 @@
+using Game.Scripts.Core.Input;
 using Game.Scripts.Core.Signals;
 using UnityEngine;
 using Zenject;
@@ -12,6 +13,16 @@ namespace Game.Scripts.Core
             
             BindGameStateService();
             BindGameStateChanger();
+            
+            BindKeyboardInput();
+        }
+
+        private void BindKeyboardInput()
+        {
+            Container
+                .BindInterfacesAndSelfTo<KeyboardInput>()
+                .AsSingle()
+                .NonLazy();
         }
 
         private void BindGameStateChanger()

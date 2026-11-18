@@ -12,6 +12,8 @@ namespace Game.Scripts.Gameplay.Configs
         [SerializeField] private TextAsset _playerCharacterConfigJson;
         [SerializeField] private TextAsset _ufoConfigJson;
         [SerializeField] private TextAsset _worldConfigJson;
+        [SerializeField] private TextAsset _machineGunConfigJson;
+        [SerializeField] private TextAsset _laserGunConfigJson;
 
         public override void InstallBindings()
         {
@@ -27,6 +29,8 @@ namespace Game.Scripts.Gameplay.Configs
                 JsonDeserializer.Parse<PlayerCharacterConfig>(_playerCharacterConfigJson);
             UfoConfig ufoConfig = JsonDeserializer.Parse<UfoConfig>(_ufoConfigJson);
             WorldConfig worldConfig = JsonDeserializer.Parse<WorldConfig>(_worldConfigJson);
+            MachineGunConfig machineGunConfig = JsonDeserializer.Parse<MachineGunConfig>(_machineGunConfigJson);
+            LaserGunConfig laserGunConfig = JsonDeserializer.Parse<LaserGunConfig>(_laserGunConfigJson);
             
             Container.Bind<AsteroidConfig>()
                 .FromInstance(asteroidConfig)
@@ -55,6 +59,16 @@ namespace Game.Scripts.Gameplay.Configs
             
             Container.Bind<WorldConfig>()
                 .FromInstance(worldConfig)
+                .AsSingle()
+                .NonLazy();
+            
+            Container.Bind<MachineGunConfig>()
+                .FromInstance(machineGunConfig)
+                .AsSingle()
+                .NonLazy();
+            
+            Container.Bind<LaserGunConfig>()
+                .FromInstance(laserGunConfig)
                 .AsSingle()
                 .NonLazy();
         }

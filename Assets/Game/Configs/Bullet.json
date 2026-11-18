@@ -1,3 +1,4 @@
 {
-  "Speed" : 10.0
+  "Speed" : 20.0,
+  "TimeToLive" : 1.0
 }

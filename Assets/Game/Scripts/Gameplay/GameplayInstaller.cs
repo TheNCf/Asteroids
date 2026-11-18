@@ -1,7 +1,10 @@
+using Game.Scripts.Core;
 using Game.Scripts.Gameplay.Movement;
 using Game.Scripts.Gameplay.Movement.Objects;
 using Game.Scripts.Gameplay.Signals;
+using Game.Scripts.Gameplay.Spawners;
 using Game.Scripts.Gameplay.Views;
+using Game.Scripts.Gameplay.Weapons;
 using UnityEngine;
 using Zenject;
 
@@ -11,6 +14,9 @@ namespace Game.Scripts.Gameplay
     {
         [SerializeField] private PlayerCharacterView _playerCharacterViewPrefab;
         
+        [SerializeField] private BulletView _bulletPrefab;
+        [SerializeField] private int _initialPoolSize;
+
         public override void InstallBindings()
         {
             DeclareSignals();
@@ -21,6 +27,28 @@ namespace Game.Scripts.Gameplay
             BindPlayerCharacterView();
             BindPlayerCharacterMovement();
             BindPlayerCharacterMovementInputHandler();
+            
+            Container.Bind<ObjectPool<BulletView>>()
+                .FromMethod(ctx => ObjectPoolFactory.CreateMonoPool(
+                    Container,
+                    _bulletPrefab,
+                    _initialPoolSize,
+                    bullet => bullet.Activate(),
+                    bullet => bullet.ResetObject()
+                ))
+                .AsSingle();
+            Container
+                .BindInterfacesAndSelfTo<BulletSpawner>()
+                .AsSingle()
+                .NonLazy();
+            Container
+                .BindInterfacesAndSelfTo<MachineGun>()
+                .AsSingle()
+                .NonLazy();
+            Container
+                .BindInterfacesAndSelfTo<PlayerCharacterWeaponInputHandler>()
+                .AsSingle()
+                .NonLazy();
         }
 
         private void BindPlayerCharacterMovementInputHandler()

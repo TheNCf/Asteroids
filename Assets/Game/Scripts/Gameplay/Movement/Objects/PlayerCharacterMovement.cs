@@ -11,6 +11,8 @@ namespace Game.Scripts.Gameplay.Movement.Objects
         private readonly PlayerCharacterConfig _config;
         private readonly PlayerCharacterView _playerCharacterView;
 
+        private Vector2 _position;
+
         public PlayerCharacterMovement(MovableRegistry registry, PlayerCharacterConfig config, PlayerCharacterView playerCharacterView)
         {
             _registry = registry;
@@ -20,13 +22,20 @@ namespace Game.Scripts.Gameplay.Movement.Objects
             _registry.Register(this);
         }
 
-        public Vector2 Position { get; private set; }
+        public Vector2 Position
+        {
+            get => _position;
+            private set
+            {
+                _position = value;
+                _playerCharacterView.transform.position = _position;
+            }
+        }
         public Vector2 Velocity { get; private set; }
         
         public void Move(Vector2 delta)
         {
             Position += delta;
-            _playerCharacterView.transform.position = Position;
         }
 
         public void Move(float deltaX = 0, float deltaY = 0)

@@ -28,6 +28,42 @@ namespace Game.Scripts.Gameplay
             BindPlayerCharacterMovement();
             BindPlayerCharacterMovementInputHandler();
             
+            BindBulletPool();
+            BindBulletSpawner();
+            BindMachineGun();
+            Container
+                .BindInterfacesAndSelfTo<LaserGun>()
+                .AsSingle()
+                .NonLazy();
+            BindWeaponInputHandler();
+        }
+
+        private void BindWeaponInputHandler()
+        {
+            Container
+                .BindInterfacesAndSelfTo<PlayerCharacterWeaponInputHandler>()
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void BindMachineGun()
+        {
+            Container
+                .BindInterfacesAndSelfTo<MachineGun>()
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void BindBulletSpawner()
+        {
+            Container
+                .BindInterfacesAndSelfTo<BulletSpawner>()
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void BindBulletPool()
+        {
             Container.Bind<ObjectPool<BulletView>>()
                 .FromMethod(ctx => ObjectPoolFactory.CreateMonoPool(
                     Container,
@@ -37,18 +73,6 @@ namespace Game.Scripts.Gameplay
                     bullet => bullet.ResetObject()
                 ))
                 .AsSingle();
-            Container
-                .BindInterfacesAndSelfTo<BulletSpawner>()
-                .AsSingle()
-                .NonLazy();
-            Container
-                .BindInterfacesAndSelfTo<MachineGun>()
-                .AsSingle()
-                .NonLazy();
-            Container
-                .BindInterfacesAndSelfTo<PlayerCharacterWeaponInputHandler>()
-                .AsSingle()
-                .NonLazy();
         }
 
         private void BindPlayerCharacterMovementInputHandler()

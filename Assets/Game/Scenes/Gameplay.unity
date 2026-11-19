@@ -247,6 +247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCharacterViewPrefab: {fileID: 7108840014404339299, guid: 419b1e976ff3942bfac105dd6b7959d5, type: 3}
+  _bulletPrefab: {fileID: 3607989913346080961, guid: 3eef66d4b47ee41faaea2f0bfe9efa62, type: 3}
+  _initialPoolSize: 20
 --- !u!114 &809055563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +315,8 @@ MonoBehaviour:
   _playerCharacterConfigJson: {fileID: 4900000, guid: bed94db8e07c4964ad9c60022919db30, type: 3}
   _ufoConfigJson: {fileID: 4900000, guid: 5adcca7db2e84e5b8857ec7129239f6a, type: 3}
   _worldConfigJson: {fileID: 4900000, guid: 4276d4a1b8714eda903b8cf1119e7a9d, type: 3}
+  _machineGunConfigJson: {fileID: 4900000, guid: fd94ce393d2a4da3bef95fe85c7d9cc6, type: 3}
+  _laserGunConfigJson: {fileID: 4900000, guid: 99d9d6d29b63417885efd94b46798b80, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

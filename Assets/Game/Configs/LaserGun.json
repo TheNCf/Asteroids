@@ -1,4 +1,5 @@
 {
   "ReloadTime" : 10.0,
+  "Cooldown" : 2.0,
   "MaxAmount" : 3
 }

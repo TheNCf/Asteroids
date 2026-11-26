@@ -1,9 +1,9 @@
 using System;
 using Game.Scripts.Gameplay.Configs;
-using Game.Scripts.Gameplay.Views;
+using Game.Scripts.Gameplay.Movement;
 using UnityEngine;
 
-namespace Game.Scripts.Gameplay.Movement.Objects
+namespace Game.Scripts.Gameplay.Player
 {
     public class PlayerCharacterMovement : IMovable, IDisposable
     {

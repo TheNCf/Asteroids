@@ -1,10 +1,9 @@
 using Game.Scripts.Core.Input;
 using Game.Scripts.Gameplay.Configs;
-using Game.Scripts.Gameplay.Views;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Scripts.Gameplay.Movement.Objects
+namespace Game.Scripts.Gameplay.Player
 {
     public class PlayerCharacterMovementInputHandler : ITickable
     {

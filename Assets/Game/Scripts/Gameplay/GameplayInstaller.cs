@@ -1,10 +1,11 @@
 using Game.Scripts.Core;
 using Game.Scripts.Gameplay.Movement;
-using Game.Scripts.Gameplay.Movement.Objects;
+using Game.Scripts.Gameplay.Player;
 using Game.Scripts.Gameplay.Signals;
 using Game.Scripts.Gameplay.Spawners;
-using Game.Scripts.Gameplay.Views;
 using Game.Scripts.Gameplay.Weapons;
+using Game.Scripts.Gameplay.Weapons.Projectiles.Bullet;
+using Game.Scripts.Gameplay.Weapons.Projectiles.Laser;
 using UnityEngine;
 using Zenject;
 
@@ -15,7 +16,9 @@ namespace Game.Scripts.Gameplay
         [SerializeField] private PlayerCharacterView _playerCharacterViewPrefab;
         
         [SerializeField] private BulletView _bulletPrefab;
-        [SerializeField] private int _initialPoolSize;
+        [SerializeField] private LaserView _laserPrefab;
+        [SerializeField] private int _initialBulletPoolSize;
+        [SerializeField] private int _initialLaserPoolSize;
 
         public override void InstallBindings()
         {
@@ -31,6 +34,11 @@ namespace Game.Scripts.Gameplay
             BindBulletPool();
             BindBulletSpawner();
             BindMachineGun();
+            BindLaserPool();
+            Container
+                .BindInterfacesAndSelfTo<LaserSpawner>()
+                .AsSingle()
+                .NonLazy();
             Container
                 .BindInterfacesAndSelfTo<LaserGun>()
                 .AsSingle()
@@ -65,12 +73,25 @@ namespace Game.Scripts.Gameplay
         private void BindBulletPool()
         {
             Container.Bind<ObjectPool<BulletView>>()
-                .FromMethod(ctx => ObjectPoolFactory.CreateMonoPool(
+                .FromMethod(_ => ObjectPoolFactory.CreateMonoPool(
                     Container,
                     _bulletPrefab,
-                    _initialPoolSize,
+                    _initialBulletPoolSize,
                     bullet => bullet.Activate(),
                     bullet => bullet.ResetObject()
+                ))
+                .AsSingle();
+        }
+        
+        private void BindLaserPool()
+        {
+            Container.Bind<ObjectPool<LaserView>>()
+                .FromMethod(_ => ObjectPoolFactory.CreateMonoPool(
+                    Container,
+                    _laserPrefab,
+                    _initialLaserPoolSize,
+                    laser => laser.Activate(),
+                    laser => laser.ResetObject()
                 ))
                 .AsSingle();
         }

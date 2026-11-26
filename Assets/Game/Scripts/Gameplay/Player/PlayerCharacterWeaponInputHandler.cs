@@ -1,6 +1,7 @@
 using Game.Scripts.Core.Input;
+using Game.Scripts.Gameplay.Weapons;
 
-namespace Game.Scripts.Gameplay.Weapons
+namespace Game.Scripts.Gameplay.Player
 {
     public class PlayerCharacterWeaponInputHandler
     {
@@ -16,6 +17,7 @@ namespace Game.Scripts.Gameplay.Weapons
             _laserGun = laserGun;
 
             _inputService.BulletButtonPressed += OnBulletButtonPressed;
+            _inputService.LaserButtonPressed += OnLaserButtonPressed;
         }
 
         private void OnBulletButtonPressed()

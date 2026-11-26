@@ -1,25 +1,25 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Game.Scripts.Gameplay.Views;
-using Zenject;
+using Game.Scripts.Core;
+using Game.Scripts.Gameplay.Weapons.Projectiles.Laser;
 
-namespace Game.Scripts.Gameplay.Weapons.Projectiles.Bullet
+namespace Game.Scripts.Gameplay.Weapons.Projectiles
 {
-    public class BulletReturner : IDisposable
+    public class Returner
     {
-        private readonly BulletView _view;
+        private readonly IPoolableObject _poolableObject;
         private readonly CancellationTokenSource _cts = new();
 
         private float _lifeTime;
         
         private bool _isExpired = false;
 
-        public event Action<BulletView> Expired;
+        public event Action<IPoolableObject> Expired;
 
-        public BulletReturner(BulletView view)
+        public Returner(IPoolableObject poolableObject)
         {
-            _view = view;
+            _poolableObject = poolableObject;
         }
 
         public void Activate(float lifeTime)
@@ -32,8 +32,8 @@ namespace Game.Scripts.Gameplay.Weapons.Projectiles.Bullet
         private async UniTaskVoid StartLifeTimerAsync(CancellationToken token)
         {
             bool isCanceled = await UniTask.Delay(
-                TimeSpan.FromSeconds(_lifeTime),
-                cancellationToken: token)
+                    TimeSpan.FromSeconds(_lifeTime),
+                    cancellationToken: token)
                 .SuppressCancellationThrow();
 
             if (!isCanceled)
@@ -46,7 +46,7 @@ namespace Game.Scripts.Gameplay.Weapons.Projectiles.Bullet
                 return;
             
             _isExpired = true;
-            Expired?.Invoke(_view);
+            Expired?.Invoke(_poolableObject);
         }
         
         public void Dispose()

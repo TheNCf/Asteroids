@@ -1,11 +1,8 @@
 using System;
 using Game.Scripts.Core;
-using Game.Scripts.Gameplay.Movement.Objects;
-using Game.Scripts.Gameplay.Weapons.Projectiles.Bullet;
 using UnityEngine;
-using Zenject;
 
-namespace Game.Scripts.Gameplay.Views
+namespace Game.Scripts.Gameplay.Weapons.Projectiles.Bullet
 {
     public class BulletView : MonoBehaviour, IPoolableObject
     {

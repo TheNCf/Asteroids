@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Game.Scripts.Gameplay.Views
+namespace Game.Scripts.Gameplay.Player
 {
     public class PlayerCharacterView : MonoBehaviour
     {

@@ -1,5 +1,4 @@
 using Game.Scripts.Gameplay.Movement;
-using Game.Scripts.Gameplay.Views;
 using UnityEngine;
 
 namespace Game.Scripts.Gameplay.Weapons.Projectiles.Bullet

@@ -1,6 +1,4 @@
 using System;
-using Game.Scripts.Gameplay.Movement.Objects;
-using Game.Scripts.Gameplay.Views;
 using Zenject;
 
 namespace Game.Scripts.Gameplay.Weapons.Projectiles.Bullet
@@ -14,10 +12,10 @@ namespace Game.Scripts.Gameplay.Weapons.Projectiles.Bullet
             _view = view;
             
             Mover = new BulletMover(_view);
-            Returner = new BulletReturner(_view);
+            Returner = new Returner(_view);
         }
         
-        public BulletReturner Returner { get; }
+        public Returner Returner { get; }
         public BulletMover Mover { get; }
     }
 }

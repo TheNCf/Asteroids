@@ -248,7 +248,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCharacterViewPrefab: {fileID: 7108840014404339299, guid: 419b1e976ff3942bfac105dd6b7959d5, type: 3}
   _bulletPrefab: {fileID: 3607989913346080961, guid: 3eef66d4b47ee41faaea2f0bfe9efa62, type: 3}
-  _initialPoolSize: 20
+  _laserPrefab: {fileID: -4012362932360022023, guid: 30e4d1875f8a74692b13ef0f67d2c7dd, type: 3}
+  _initialBulletPoolSize: 10
+  _initialLaserPoolSize: 3
 --- !u!114 &809055563
 MonoBehaviour:
   m_ObjectHideFlags: 0

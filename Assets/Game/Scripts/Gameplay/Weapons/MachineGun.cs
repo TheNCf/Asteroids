@@ -2,8 +2,8 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Game.Scripts.Gameplay.Configs;
+using Game.Scripts.Gameplay.Player;
 using Game.Scripts.Gameplay.Spawners;
-using Game.Scripts.Gameplay.Views;
 using UniRx;
 using UnityEngine;
 

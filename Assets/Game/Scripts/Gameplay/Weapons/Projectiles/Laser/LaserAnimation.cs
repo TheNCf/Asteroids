@@ -10,7 +10,7 @@ namespace Game.Scripts.Gameplay.Weapons.Projectiles.Laser
 
         private readonly Vector3 _startSize;
         
-        public event TweenCallback AnimationStopFinished; 
+        public event Action AnimationStopFinished; 
 
         public LaserAnimation(LaserView laserView)
         {
@@ -32,7 +32,7 @@ namespace Game.Scripts.Gameplay.Weapons.Projectiles.Laser
             Sequence sequence = DOTween.Sequence();
             sequence.Append(_laserView.transform.DOScaleY(0, 0.5f).SetEase(Ease.InQuint));
             sequence.Join(_laserView.transform.DOScaleX(0, 0.5f).SetEase(Ease.InQuad));
-            sequence.OnComplete(AnimationStopFinished);
+            sequence.OnComplete(() => AnimationStopFinished?.Invoke());
         }
     }
 }
